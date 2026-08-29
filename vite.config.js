@@ -1,13 +1,13 @@
 import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
-import { resolve } from 'path'
 
 export default defineConfig({
-  root: 'src',                 
-  base: '/portfolio/',         
+  root: 'src',                // Tells Vite that index.html is inside src/
+  base: '/portfolio/',        // Correct subfolder path for GitHub Pages
+  publicDir: '../public',     // Fix: Explicitly tells Vite public is outside of src/
   plugins: [tailwindcss()],
   build: {
-    outDir: '../dist',         
-    emptyOutDir: true          
+    outDir: '../dist',        // Places the final production build at the project root
+    emptyOutDir: true         // Empties old content before rebuilding
   }
 })
