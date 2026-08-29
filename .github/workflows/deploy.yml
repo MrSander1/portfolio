@@ -1,4 +1,4 @@
-name: Deploy Vite + Tailwind site to Pages
+name: Deploy Vite site from src to Pages
 
 on:
   push:
@@ -39,10 +39,10 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Upload compiled production files
+      - name: Upload compiled files
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist' # Vite puts the final website inside 'dist'
+          path: './dist' # Vite drops the compiled files in root /dist
 
       - name: Deploy to GitHub Pages
         id: deployment
