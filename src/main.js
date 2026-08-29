@@ -35,11 +35,11 @@ function setToggleIcon(isDark) {
 
 function updateLogos(isDark) {
   if (logoImage) {
-    logoImage.src = isDark ? './src/assets/white.png' : './src/assets/logo.png'
+    logoImage.src = isDark ? './assets/white.png' : './assets/logo.png'
   }
 
   if (footerLogoImage) {
-    footerLogoImage.src = isDark ? './src/assets/white.png' : './src/assets/logo.png'
+    footerLogoImage.src = isDark ? './assets/white.png' : './assets/logo.png'
   }
 }
 
