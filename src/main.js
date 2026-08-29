@@ -1,4 +1,6 @@
 import './style.css'
+import darkLogo from './assets/logo.png';
+import whiteLogo from './assets/white.png';
 
 const hamburger = document.querySelector("#hamburger")
 const menu = document.querySelector("#menu")
@@ -35,11 +37,11 @@ function setToggleIcon(isDark) {
 
 function updateLogos(isDark) {
   if (logoImage) {
-    logoImage.src = isDark ? './assets/white.png' : './assets/logo.png'
+    logoImage.src = isDark ? whiteLogo : darkLogo
   }
 
   if (footerLogoImage) {
-    footerLogoImage.src = isDark ? './assets/white.png' : './assets/logo.png'
+    footerLogoImage.src = isDark ? whiteLogo : darkLogo
   }
 }
 
