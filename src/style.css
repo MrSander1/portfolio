@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+/* Theme variables for light (default) and dark (overrides on html.dark).
+   These are intentionally separate from Tailwind so toggling html.dark switches the token values.
+*/
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+  --muted: #6b7280; /* gray-500 */
+  --muted-bg: #f3f4f6; /* gray-100 */
+  --card: #ffffff;
+  --accent: #000000; /* primary */
+  --accent-contrast: #ffffff;
+  --ring: rgba(0,0,0,0.12);
+  --hamburger: #000000;
+  --transition: 200ms;
+}
+
+html.dark {
+  --bg: #0b1220;
+  --text: #f8fafc;
+  --muted: #9ca3af;
+  --muted-bg: #071025;
+  --card: #071025;
+  --accent: #ffffff;
+  --accent-contrast: #000000;
+  --ring: rgba(255,255,255,0.06);
+  --hamburger: #ffffff;
+  --transition: 200ms;
+}
+
+/* Apply tokens to core elements. These rules are placed after Tailwind import so they override
+   the utility classes for color-sensitive elements while keeping the utility class structure. */
+body {
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+nav {
+  background-color: var(--card) !important;
+}
+
+/* Map commonly used Tailwind utility classes to variables so HTML can keep using them. */
+.text-black { color: var(--text) !important; }
+.text-white { color: var(--accent-contrast) !important; }
+.text-gray-700, .text-gray-600, .text-gray-500 { color: var(--muted) !important; }
+
+.bg-white { background-color: var(--card) !important; }
+.bg-black { background-color: var(--accent) !important; }
+.bg-gray-100, .bg-gray-200 { background-color: var(--muted-bg) !important; }
+
+/* Buttons and CTAs that use bg-black/text-white will automatically follow variables above.
+   Add a small helper in case specific components need direct access. */
+.theme-accent { background-color: var(--accent) !important; color: var(--accent-contrast) !important; }
+
+/* Inputs */
+input, textarea {
+  background-color: var(--card) !important;
+  color: var(--text) !important;
+  border-color: var(--ring) !important;
+}
+
+/* Hamburger bars (select the small bars inside the hamburger container) */
+#hamburger .w-6.h-0.5, #hamburger .w-6.h-0\.5 {
+  background-color: var(--hamburger) !important;
+}
+
+/* Muted text helper */
+.text-muted { color: var(--muted) !important; }
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+@theme {
+  --breakpoint-sm: 480px;
+
+  --font-nunito: "Nunito", sans-serif;
+
+  --spacing-big: 84rem;
+}
